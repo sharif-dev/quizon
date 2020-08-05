@@ -96,5 +96,21 @@ class ViewController: UIViewController {
         fourButton.backgroundColor = UIColor.clear
     }
 
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        super.prepare(for: segue, sender: sender)
+        
+        guard let resultView = segue.destination as? ResultViewController else {
+            return
+        }
+        
+        guard let finishButton = sender as? UIBarButtonItem else {
+            return
+        }
+        
+        resultView.score = quiz.getScore()
+        resultView.numberOfQuestions = quiz.getNumberOfQuestions()
+        
+    }
 }
 

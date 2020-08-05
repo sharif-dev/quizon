@@ -53,4 +53,8 @@ class Quiz{
         
         return false
     }
+    
+    func getNumberOfQuestions() -> Int{
+        return questions.count
+    }
 }

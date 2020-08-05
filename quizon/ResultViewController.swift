@@ -10,11 +10,16 @@ import UIKit
 
 class ResultViewController: UIViewController {
 
+    var score : Int = 0
+    var numberOfQuestions : Int = 0
+    
+    @IBOutlet weak var scoreLabel: UILabel!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         self.navigationItem.setHidesBackButton(true, animated: false)
-
+        scoreLabel.text = "\(score)/\(numberOfQuestions)"
         // Do any additional setup after loading the view.
     }
     

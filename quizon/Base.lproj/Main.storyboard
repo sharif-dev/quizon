@@ -211,6 +211,9 @@
                         <viewLayoutGuide key="safeArea" id="AHB-bJ-guN"/>
                     </view>
                     <navigationItem key="navigationItem" id="Wvs-Ta-PHr"/>
+                    <connections>
+                        <outlet property="scoreLabel" destination="p5g-kp-vtd" id="plg-Ez-3Nj"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="qzd-GL-TeM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>

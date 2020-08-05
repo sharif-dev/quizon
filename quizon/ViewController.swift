@@ -11,6 +11,7 @@ import UIKit
 class ViewController: UIViewController {
     
     
+    @IBOutlet weak var finishBarButton: UIBarButtonItem!
     @IBOutlet weak var timerLabel: UILabel!
     @IBOutlet weak var scoreLabel: UILabel!
     @IBOutlet weak var questionLabel: UILabel!
@@ -24,13 +25,7 @@ class ViewController: UIViewController {
     var timeToAnswer = 15
     var answerTimer =  Timer()
     
-    var quiz = Quiz(questions: [
-    Question(question: "hello, whats up", answers: ["yes", "no", "not yet", "nah"], correct: 2),
-    Question(question: "hello1, whats up", answers: ["yes", "no", "not yet", "nah"], correct: 2),
-    Question(question: "hello2, whats up", answers: ["yes", "no", "not yet", "nah"], correct: 2),
-    Question(question: "hello3, whats up", answers: ["yes", "no", "not yet", "nah"], correct: 2),
-    Question(question: "hello4, whats up", answers: ["yes", "no", "not yet", "nah"], correct: 2)
-    ])
+    var quiz = Quiz(questions: [])
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -38,6 +33,14 @@ class ViewController: UIViewController {
         answerTimer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector: #selector(countDown), userInfo: nil, repeats: true)
         // Do any additional setup after loading the view.
         updateUI()
+    }
+    
+    @IBAction func unwindToMealList(sender: UIStoryboardSegue) {
+        if let sourceViewController = sender.source as? WelcomeViewController {
+            
+            print(sourceViewController.quiz)
+            
+        }
     }
 
     @IBAction func answerButtonPressed(_ sender: UIButton) {
@@ -55,13 +58,9 @@ class ViewController: UIViewController {
         let endOfQuiz = quiz.nextQuestion()
         
         if endOfQuiz{
-            print("going out")
             answerTimer.invalidate()
             
-            let resultView = ResultViewController()
-            resultView.modalPresentationStyle = .fullScreen
-            self.navigationController!.pushViewController(resultView, animated: true)
-//            self.present(resultView, animated: false, completion: nil)
+            UIApplication.shared.sendAction(finishBarButton.action ?? "", to: finishBarButton.target, from: self, for: nil)
         }
 
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)

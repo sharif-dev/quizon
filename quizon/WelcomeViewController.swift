@@ -1,5 +1,5 @@
 //
-//  ResultViewController.swift
+//  WelcomeViewController.swift
 //  quizon
 //
 //  Created by Allarious on 05/08/2020.
@@ -8,11 +8,10 @@
 
 import UIKit
 
-class ResultViewController: UIViewController {
+class WelcomeViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
 
         // Do any additional setup after loading the view.
     }

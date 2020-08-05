@@ -7,3 +7,15 @@
 //
 
 import Foundation
+
+struct Question {
+    let text: String
+    let answers: [String]
+    let correct: Int
+    
+    init(question: String, answers: [String], correct: Int) {
+        self.text = question
+        self.answers = answers
+        self.correct = correct
+    }
+}

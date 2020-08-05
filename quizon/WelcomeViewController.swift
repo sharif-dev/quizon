@@ -40,9 +40,9 @@ class WelcomeViewController: UIViewController {
         switch(buttonText){
         case "Astronomy":
             quizController.quiz = Quiz(questions: [
-            Question(question: "Astronomy1", answers: ["A", "B", "C", "D"], correct: 2),
-            Question(question: "Astronomy2", answers: ["A", "B", "C", "D"], correct: 2),
-            Question(question: "Astronomy3", answers: ["A", "B", "C", "D"], correct: 2),
+            Question(question: "How many planets are there in The Solar System?", answers: ["5", "6", "7", "8"], correct: 4),
+            Question(question: "Which one is the radius of earth?", answers: ["6371", "5634", "2654", "9868"], correct: 1),
+            Question(question: "What is the distance between earth and sun called?", answers: [ "1KM", "1AU", "1MI", "1DN"], correct: 2),
             Question(question: "Astronomy4", answers: ["A", "B", "C", "D"], correct: 2),
             Question(question: "Astronomy5", answers: ["A", "B", "C", "D"], correct: 2),
             ])

@@ -60,21 +60,23 @@ class ViewController: UIViewController {
         if endOfQuiz{
             answerTimer.invalidate()
             
-            UIApplication.shared.sendAction(finishBarButton.action ?? "", to: finishBarButton.target, from: self, for: nil)
+            performSegue(withIdentifier: "finishQuiz", sender: finishBarButton)
         }
 
         Timer.scheduledTimer(timeInterval: 0.2, target: self, selector: #selector(updateUI), userInfo: nil, repeats: false)
-    }
-    
-    func sth() {
-        
     }
     
     @objc func countDown(){
         timeToAnswer -= 1
         timerLabel.text = "time remaining: \(timeToAnswer)"
         if timeToAnswer == 0{
-            let _ = quiz.nextQuestion()
+            let endOfQuiz = quiz.nextQuestion()
+            
+            if endOfQuiz{
+                answerTimer.invalidate()
+
+                performSegue(withIdentifier: "finishQuiz", sender: finishBarButton)
+            }
             updateUI()
         }
     }
@@ -108,6 +110,8 @@ class ViewController: UIViewController {
             return
         }
         
+        
+        print(quiz.getScore())
         resultView.score = quiz.getScore()
         resultView.numberOfQuestions = quiz.getNumberOfQuestions()
         

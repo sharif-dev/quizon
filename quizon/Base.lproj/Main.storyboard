@@ -126,7 +126,7 @@
                     <navigationItem key="navigationItem" id="low-9e-NXN">
                         <barButtonItem key="rightBarButtonItem" title="Finish" id="zDD-qX-HT2">
                             <connections>
-                                <segue destination="ZK5-Hq-ih4" kind="push" id="86b-JX-BvK"/>
+                                <segue destination="ZK5-Hq-ih4" kind="push" identifier="finishQuiz" id="86b-JX-BvK"/>
                             </connections>
                         </barButtonItem>
                     </navigationItem>
@@ -342,6 +342,7 @@
         <image name="Rectangle" width="322" height="68"/>
     </resources>
     <inferredMetricsTieBreakers>
+        <segue reference="86b-JX-BvK"/>
         <segue reference="Xhc-0X-MHG"/>
         <segue reference="eEA-Xe-POY"/>
     </inferredMetricsTieBreakers>
